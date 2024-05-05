@@ -6,6 +6,7 @@ module "oci-oke" {
   tenancy_ocid                  = var.tenancy_ocid
   compartment_ocid              = var.compartment_ocid
   oke_cluster_name              = var.oke_cluster_name
+  oke_cluster_type              = var.oke_cluster_type
   k8s_version                   = var.k8s_version
   pool_name                     = var.pool_name
   node_shape                    = var.node_shape

@@ -28,6 +28,10 @@ variable "oke_cluster_name" {
   default = "My_OKE_Cluster"
 }
 
+variable "oke_cluster_type" {
+  default = "BASIC_CLUSTER"
+}
+
 variable "k8s_version" {
   default = "v1.20.11"
 }

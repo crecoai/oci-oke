@@ -60,6 +60,7 @@ lb_subnet_cidr | If use_existing_vcn is set to FALSE then you can define LoadBal
 api_endpoint_subnet_id | If use_existing_vcn is set to TRUE then you can pass API EndPoint Subnet OCID and module will use it to define endpoint_config.
 api_endpoint_subnet_cidr | If use_existing_vcn is set to FALSE then you can define API EndPoint CIDR block and then it will used to create endpoint_config within the module.
 oke_cluster_name | The name of the OKE Cluster.
+oke_cluster_type | Type type of the OKE Cluster. Basic or Advnaced. Basic by default, as upgrading to ENHANCED is irreverisble.
 vcn_native | if you want to use modern VCN-native mode for OKE then you need to set the value to TRUE.
 is_api_endpoint_subnet_public | If vcn_native is set to TRUE then you can choose if API EndPoint will be in the public or private subnet.
 is_lb_subnet_public | If vcn_native is set to TRUE then you can choose if LoadBalancer will be in the public or private subnet.
