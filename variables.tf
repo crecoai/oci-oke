@@ -53,6 +53,11 @@ variable "oke_cluster_name" {
   default = "OKE_Cluster"
 }
 
+variable "oke_cluster_type" {
+  default = "BASIC_CLUSTER"
+  description = "BASIC_CLUSTER can be upgraded to ENHANCED_CLUSTER but not the other way around."
+}
+
 variable "vcn_native" {
   default = true
 }

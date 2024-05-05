@@ -10,7 +10,7 @@ resource "oci_containerengine_cluster" "oci_oke_cluster" {
   kubernetes_version = var.k8s_version
   name               = var.oke_cluster_name
   vcn_id             = var.use_existing_vcn ? var.vcn_id : oci_core_vcn.oke_vcn[0].id
-  type               = "ENHANCED_CLUSTER"
+  type               = var.oke_cluster_type
 
   dynamic "endpoint_config" {
     for_each = var.vcn_native ? [1] : []
@@ -63,14 +63,6 @@ resource "oci_containerengine_node_pool" "oci_oke_node_pool" {
   node_config_details {
     placement_configs {
       availability_domain = var.availability_domain == "" ? data.oci_identity_availability_domains.ADs.availability_domains[0]["name"] : var.availability_domain
-      subnet_id           = var.use_existing_vcn ? var.nodepool_subnet_id : oci_core_subnet.oke_nodepool_subnet[0].id
-    }
-    placement_configs {
-      availability_domain = var.availability_domain == "" ? data.oci_identity_availability_domains.ADs.availability_domains[1]["name"] : var.availability_domain
-      subnet_id           = var.use_existing_vcn ? var.nodepool_subnet_id : oci_core_subnet.oke_nodepool_subnet[0].id
-    }
-    placement_configs {
-      availability_domain = var.availability_domain == "" ? data.oci_identity_availability_domains.ADs.availability_domains[2]["name"] : var.availability_domain
       subnet_id           = var.use_existing_vcn ? var.nodepool_subnet_id : oci_core_subnet.oke_nodepool_subnet[0].id
     }
     size         = var.node_count
